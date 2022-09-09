@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.13/css/froala_editor.pkgd.min.css"
+      integrity="sha512-S7ejzPIJDreOGloTluwZcFTWaDAc5EOB7SXOtqYKa87Z8wG5g8z8DcXyKVcg6Y14GHOjNdK8XpJqjuAoOXvzgA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div id="froala-editor">
+      <p>Qwd</p>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/4.0.13/js/froala_editor.pkgd.min.js"
+      integrity="sha512-toCDJxY+nfCgi6r+mykRGBhUielrMwcxgKBpx6tTLg9c3tWrnu/K85VG9I8vcz1Cs53hrZ9eRf6cAa6Uf2Abew=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      let editor = new FroalaEditor(
+        "div#froala-editor",
+        {
+          height: "calc(100vh - 55px)",
+        },
+        function () {
+          false;
+        }
+      );
+      setInterval(() => {
+        window.ReactNativeWebView.postMessage(editor.html.get());
+      }, 1000);
+    </script>
+  </body>
+</html>
